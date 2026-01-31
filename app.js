@@ -21,8 +21,9 @@ $(document).ready(function() {
         newUrl.searchParams.set('url', url);
         history.replaceState(null, '', newUrl);
 
+        const apiHost = location.hostname === 'localhost' ? 'local-timeline.hyunsub.kim' : 'timeline.hyunsub.kim';
         $.ajax({
-            url: 'https://timeline.hyunsub.kim/api/v1/japan-map-code',
+            url: `https://${apiHost}/api/v1/japan-map-code`,
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ url: url }),
