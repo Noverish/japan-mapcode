@@ -22,7 +22,7 @@ $(document).ready(function() {
         history.replaceState(null, '', newUrl);
 
         $.ajax({
-            url: 'https://local-timeline.hyunsub.kim/api/v1/japan-map-code',
+            url: 'https://timeline.hyunsub.kim/api/v1/japan-map-code',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ url: url }),
@@ -50,12 +50,21 @@ $(document).ready(function() {
         }
     });
 
-    // X 버튼(search clear) 클릭 시 결과 숨김
-    $('#urlInput').on('search', function() {
-        if (!$(this).val()) {
-            hideError();
-            hideResult();
+    // 입력값 변경 시 X 버튼 표시/숨김
+    $('#urlInput').on('input', function() {
+        if ($(this).val().trim()) {
+            $('#clearBtn').removeClass('d-none');
+        } else {
+            $('#clearBtn').addClass('d-none');
         }
+    });
+
+    // X 버튼 클릭 시 입력 초기화
+    $('#clearBtn').click(function() {
+        $('#urlInput').val('').focus();
+        $(this).addClass('d-none');
+        hideError();
+        hideResult();
     });
 
     $(document).on('click', '.copy-btn', function() {
@@ -76,7 +85,7 @@ $(document).ready(function() {
     const urlFromQuery = urlParams.get('url');
 
     if (urlFromQuery) {
-        $('#urlInput').val(urlFromQuery);
+        $('#urlInput').val(urlFromQuery).trigger('input');
         $('#extractBtn').click();
     }
 });
