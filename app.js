@@ -7,9 +7,19 @@ $(document).ready(function() {
             return;
         }
 
+        if (!isValidGoogleMapsUrl(url)) {
+            showError('올바른 Google Maps 링크를 입력해주세요.');
+            return;
+        }
+
         hideError();
         hideResult();
         showLoading();
+
+        // URL에 쿼리 파라미터 추가
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set('url', url);
+        history.replaceState(null, '', newUrl);
 
         $.ajax({
             url: 'https://timeline.hyunsub.kim/api/v1/japan-map-code',
@@ -50,11 +60,18 @@ $(document).ready(function() {
             }, 1000);
         });
     });
+
+    // 쿼리 파라미터에서 url 확인 (이벤트 핸들러 등록 후 실행)
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlFromQuery = urlParams.get('url');
+
+    if (urlFromQuery) {
+        $('#urlInput').val(urlFromQuery);
+        $('#extractBtn').click();
+    }
 });
 
 function showResult(lat, lng, mapCode) {
-    $('#latitude').text(lat);
-    $('#longitude').text(lng);
     $('#fullCoord').text(lat + ', ' + lng);
     $('#mapCode').text(mapCode || '-');
 
@@ -82,4 +99,14 @@ function showLoading() {
 
 function hideLoading() {
     $('#loading').addClass('d-none');
+}
+
+function isValidGoogleMapsUrl(url) {
+    const patterns = [
+        /^https?:\/\/(www\.)?google\.(com|co\.[a-z]{2,}|[a-z]{2,})\/maps/i,
+        /^https?:\/\/maps\.app\.goo\.gl\//i,
+        /^https?:\/\/goo\.gl\/maps\//i,
+        /^https?:\/\/maps\.google\.(com|co\.[a-z]{2,}|[a-z]{2,})\//i
+    ];
+    return patterns.some(pattern => pattern.test(url));
 }

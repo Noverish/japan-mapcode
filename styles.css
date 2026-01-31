@@ -1,0 +1,193 @@
+/* Base styles */
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.main-container {
+    max-width: 600px;
+}
+
+.result-box {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.coordinate-value {
+    font-family: 'Courier New', monospace;
+    color: #0d6efd;
+    word-break: break-all;
+    flex: 1;
+}
+
+.copy-btn {
+    cursor: pointer;
+}
+
+#mapPreview {
+    width: 100%;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.result-item {
+    border-bottom: 1px solid #eee;
+}
+
+.result-item:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+.result-label {
+    color: #666;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Mobile styles (default) */
+@media (max-width: 575.98px) {
+    body {
+        font-size: 14px;
+    }
+
+    .main-container {
+        margin-top: 10px;
+        padding: 0 8px;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .result-box {
+        padding: 10px;
+    }
+
+    .coordinate-value {
+        font-size: 14px;
+    }
+
+    .copy-btn {
+        padding: 2px 8px;
+        font-size: 11px;
+    }
+
+    #mapPreview {
+        height: 180px;
+    }
+
+    .form-control {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .btn-primary {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .result-item {
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+    }
+
+    .result-label {
+        font-size: 11px;
+        margin-bottom: 2px;
+    }
+
+    .result-row {
+        gap: 6px;
+    }
+
+    h6 {
+        font-size: 0.85rem;
+    }
+
+    footer {
+        margin-top: 12px;
+        font-size: 12px;
+    }
+}
+
+/* Tablet and Desktop styles */
+@media (min-width: 576px) {
+    body {
+        font-size: 16px;
+    }
+
+    .main-container {
+        margin-top: 40px;
+        padding: 0 15px;
+    }
+
+    .card-body {
+        padding: 24px;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+
+    .result-box {
+        padding: 20px;
+    }
+
+    .coordinate-value {
+        font-size: 17px;
+    }
+
+    .copy-btn {
+        padding: 4px 12px;
+        font-size: 13px;
+    }
+
+    #mapPreview {
+        height: 280px;
+    }
+
+    .form-control {
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .result-item {
+        margin-bottom: 14px;
+        padding-bottom: 14px;
+    }
+
+    .result-label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .result-row {
+        gap: 12px;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
+
+    footer {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+}
