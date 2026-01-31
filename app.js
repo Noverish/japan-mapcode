@@ -33,7 +33,9 @@ $(document).ready(function() {
             },
             error: function(xhr) {
                 hideLoading();
-                if (xhr.responseJSON && xhr.responseJSON.message) {
+                if (xhr.status === 429) {
+                    showError('너무 많이 요청했습니다. 잠시 후 다시 시도해주세요.');
+                } else if (xhr.responseJSON && xhr.responseJSON.message) {
                     showError(xhr.responseJSON.message);
                 } else {
                     showError('좌표를 추출할 수 없습니다. 올바른 Google Maps URL인지 확인해주세요.');
