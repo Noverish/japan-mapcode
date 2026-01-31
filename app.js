@@ -22,7 +22,7 @@ $(document).ready(function() {
         history.replaceState(null, '', newUrl);
 
         $.ajax({
-            url: 'https://timeline.hyunsub.kim/api/v1/japan-map-code',
+            url: 'https://local-timeline.hyunsub.kim/api/v1/japan-map-code',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ url: url }),
@@ -47,6 +47,14 @@ $(document).ready(function() {
     $('#urlInput').keypress(function(e) {
         if (e.which === 13) {
             $('#extractBtn').click();
+        }
+    });
+
+    // X 버튼(search clear) 클릭 시 결과 숨김
+    $('#urlInput').on('search', function() {
+        if (!$(this).val()) {
+            hideError();
+            hideResult();
         }
     });
 

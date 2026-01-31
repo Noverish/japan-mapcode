@@ -52,142 +52,70 @@ body {
     align-items: center;
 }
 
-/* Mobile styles (default) */
-@media (max-width: 575.98px) {
-    body {
-        font-size: 14px;
-    }
-
-    .main-container {
-        margin-top: 10px;
-        padding: 0 8px;
-    }
-
-    .card-body {
-        padding: 12px;
-    }
-
-    .card-title {
-        font-size: 1.1rem;
-    }
-
-    .result-box {
-        padding: 10px;
-    }
-
-    .coordinate-value {
-        font-size: 14px;
-    }
-
-    .copy-btn {
-        padding: 2px 8px;
-        font-size: 11px;
-    }
-
-    #mapPreview {
-        height: 180px;
-    }
-
-    .form-control {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
-
-    .btn-primary {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    .result-item {
-        margin-bottom: 8px;
-        padding-bottom: 8px;
-    }
-
-    .result-label {
-        font-size: 11px;
-        margin-bottom: 2px;
-    }
-
-    .result-row {
-        gap: 6px;
-    }
-
-    h6 {
-        font-size: 0.85rem;
-    }
-
-    footer {
-        margin-top: 12px;
-        font-size: 12px;
-    }
+/* Common styles */
+body {
+    font-size: 17px;
 }
 
-/* Tablet and Desktop styles */
-@media (min-width: 576px) {
-    body {
-        font-size: 16px;
-    }
+.main-container {
+    margin-top: 20px;
+    padding: 0 12px;
+}
 
-    .main-container {
-        margin-top: 40px;
-        padding: 0 15px;
-    }
+.card-body {
+    padding: 16px;
+}
 
-    .card-body {
-        padding: 24px;
-    }
+.card-title {
+    font-size: 1.4rem;
+}
 
-    .card-title {
-        font-size: 1.4rem;
-    }
+.result-box {
+    padding: 14px;
+}
 
-    .result-box {
-        padding: 20px;
-    }
+.coordinate-value {
+    font-size: 17px;
+}
 
-    .coordinate-value {
-        font-size: 17px;
-    }
+.copy-btn {
+    padding: 3px 10px;
+    font-size: 14px;
+}
 
-    .copy-btn {
-        padding: 4px 12px;
-        font-size: 13px;
-    }
+#mapPreview {
+    height: 220px;
+}
 
-    #mapPreview {
-        height: 280px;
-    }
+.form-control {
+    font-size: 17px;
+    padding: 10px 12px;
+}
 
-    .form-control {
-        font-size: 16px;
-        padding: 10px 14px;
-    }
+.btn-primary {
+    padding: 10px 18px;
+    font-size: 17px;
+}
 
-    .btn-primary {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
+.result-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
 
-    .result-item {
-        margin-bottom: 14px;
-        padding-bottom: 14px;
-    }
+.result-label {
+    font-size: 13px;
+    margin-bottom: 3px;
+}
 
-    .result-label {
-        font-size: 12px;
-        margin-bottom: 4px;
-    }
+.result-row {
+    gap: 10px;
+}
 
-    .result-row {
-        gap: 12px;
-    }
+h6 {
+    font-size: 1.1rem;
+}
 
-    h6 {
-        font-size: 1rem;
-    }
-
-    footer {
-        margin-top: 20px;
-        font-size: 14px;
-    }
+footer {
+    margin-top: 16px;
+    font-size: 15px;
 }
