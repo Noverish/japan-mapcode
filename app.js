@@ -39,7 +39,7 @@ $(document).ready(function() {
                 } else if (xhr.responseJSON && xhr.responseJSON.message) {
                     showError(xhr.responseJSON.message);
                 } else {
-                    showError('좌표를 추출할 수 없습니다. 올바른 Google Maps URL인지 확인해주세요.');
+                    showError('좌표를 추출에 실패했습니다.');
                 }
             }
         });
