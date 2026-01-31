@@ -22,11 +22,16 @@ $(document).ready(function() {
         history.replaceState(null, '', newUrl);
 
         const apiHost = location.hostname === 'localhost' ? 'local-timeline.hyunsub.kim' : 'timeline.hyunsub.kim';
+        const key = new URLSearchParams(window.location.search).get('key');
+        const requestBody = { url: url };
+        if (key) {
+            requestBody.key = key;
+        }
         $.ajax({
             url: `https://${apiHost}/api/v1/japan-map-code`,
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ url: url }),
+            data: JSON.stringify(requestBody),
             timeout: 15000,
             success: function(response) {
                 hideLoading();
@@ -34,12 +39,14 @@ $(document).ready(function() {
             },
             error: function(xhr) {
                 hideLoading();
-                if (xhr.status === 429) {
+                if (xhr.status === 403) {
+                    showError('이 사이트를 이용할 수 있는 권한이 없습니다.');
+                } else if (xhr.status === 429) {
                     showError('너무 많이 요청했습니다. 잠시 후 다시 시도해주세요.');
                 } else if (xhr.responseJSON && xhr.responseJSON.message) {
                     showError(xhr.responseJSON.message);
                 } else {
-                    showError('좌표를 추출에 실패했습니다.');
+                    showError('좌표 추출에 실패했습니다.');
                 }
             }
         });
